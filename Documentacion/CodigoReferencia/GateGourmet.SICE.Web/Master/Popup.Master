@@ -1,0 +1,37 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="Popup.master.vb" Inherits="GateGourmet.SICE.Web.Popup" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Bootstrap framework -->
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap-responsive.min.css" />
+    <!-- theme color-->
+    <link rel="stylesheet" href="../css/green.css" />
+    <!-- tooltip -->
+    <link rel="stylesheet" href="../lib/qtip2/jquery.qtip.min.css" />
+    <!-- notifications -->
+    <link rel="stylesheet" href="../lib/sticky/sticky.css" />    
+    <!-- main styles -->
+    <link rel="stylesheet" href="../css/style.css" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../favicon.ico" />
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css' />
+    <!--[if lte IE 8]>
+            <script src="js/ie/html5.js"></script>
+			<script src="js/ie/respond.min.js"></script>
+        <![endif]-->
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>    
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>

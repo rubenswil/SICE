@@ -1,0 +1,23 @@
+proyecto movil , xamarin solo debe funcionar en android 
+cliente gate groumet (casino de avianca y otras aerolineas ) http://www.gategourmet.com/home
+sistema SICE (actualmente existe) hace todo el control de los Trolley que utilizan desde que ingresan a la planta y quedan disponibles para asignar a un vuelo deben pasar por controles de tipo codigo de barras y sellos 
+problema (las PDA son altamente costosas y no los cuidan, viven dañados.Costo alto)
+
+Se requiere hacer una app movil que supla lo que hace el sistema SICE , junto al tema del lector de código de barras , evolucionar con código QR 
+preguntas tecnicas:
+- Tanto la aplicación web como la PDA se tiene el código fuente.
+- La aplicacion de la PDA esta en windows mobile 
+- Se debe migrar esa app a android 
+- Reto lectura de código QR
+- La aplicación WEB (asp net tradicional) hace más cosas que la app de PDA 
+- 2 0 3 pantallas en xamarin con lector QR es lo que habría que hacer
+- Se tiene alrededor de un mes para hacer el tema 
+- se requiere apk para instalar en dispositivo 
+
+conclusión:
+1. Cotizacion con ruben pilas Presupuesto y tiempo 
+2. Ellos nos entregan el rest para consumir, solo hay que hacer front Movil
+3.  reto de lectuira de código QR
+4. Ellos van trabajando documento funcional para cotizacion 
+
+

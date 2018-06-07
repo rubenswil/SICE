@@ -1,0 +1,141 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="Master.master.vb" Inherits="GateGourmet.SICE.Web.Master" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>SICE 3.0 :: Sistema de Información y Control de Equipos</title>
+    <!-- Bootstrap framework -->
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap-responsive.css" />
+    <!-- theme color-->
+    <link rel="stylesheet" href="../css/green.css" />
+    <!-- tooltip -->
+    <link rel="stylesheet" href="../lib/qtip2/jquery.qtip.min.css" />
+    <!-- notifications -->
+    <link rel="stylesheet" href="../lib/sticky/sticky.css" />    
+    <!-- main styles -->
+    <link rel="stylesheet" href="../css/style.css" />
+    <!-- offline styles -->
+    <link href="../css/offline-theme-chrome-indicator.css" rel="stylesheet" />
+    <link href="../css/offline-theme-chrome.css" rel="stylesheet" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../favicon.ico" />
+
+
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css' />
+
+    <!--[if lte IE 8]>
+            <script src="js/ie/html5.js"></script>
+			<script src="js/ie/respond.min.js"></script>			
+        <![endif]-->
+
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+        <script type="text/javascript">
+
+        </script>
+    </asp:ContentPlaceHolder>
+<script type="text/javascript"  src='<%# ResolveUrl("~/js/jquery.min.js")%>'></script>
+</head>
+
+<body class="sidebar_hidden ptrn_d">
+    <form id="form1" runat="server">
+        <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server" EnableHistory="true" EnablePartialRendering="true" AsyncPostBackTimeout="1000">
+            <Scripts>
+                <%--<asp:ScriptReference Path="~/js/jquery.min.js" />--%>
+                <asp:ScriptReference Path="~/lib/sticky/sticky.min.js" />
+                <asp:ScriptReference Path="~/js/gebo_notifications.js" />
+                <asp:ScriptReference Path="~/js/common.js" />
+            </Scripts>
+        </asp:ToolkitScriptManager>
+
+        <div id="maincontainer" class="clearfix">
+            <!-- header -->
+            <header>
+            <div class="navbar navbar-fixed-top">
+                <div class="navbar-inner">
+                    <div class="container-fluid">
+                        <div id="siteLogo"class="brand">SICE 3.0</div>
+                        <ul class="nav user_menu pull-right">                            
+								<li class="divider-vertical hidden-phone hidden-tablet"></li>
+                                <li class="dropdown" >
+                                    <img id="imgAvatar" runat="server" src="~/img/user_avatar.png" alt="" class="user_avatar" />
+                                    <asp:LinkButton  ID="lbtnUsuario" runat="server" CausesValidation="False" ToolTip="Editar mi usuario" Style="display:inline-block;"></asp:LinkButton>
+                                </li>
+                                <li class="divider-vertical hidden-phone hidden-tablet"></li>
+                                <li class="dropdown">
+                                    <asp:LinkButton ID="lbtnSalir" runat="server" CausesValidation="False">Cerrar Sesión</asp:LinkButton>
+                                </li>
+                        </ul>
+                        <div style="padding-top:8px;display:block;">
+                            <asp:Menu ID="mnuSires" runat="server" Orientation="Horizontal" Font-Names="Verdana" Font-Size="15px"
+                                ForeColor="White" StaticSubMenuIndent="10px" Font-Bold="False" MaximumDynamicDisplayLevels="4" RenderingMode="List">
+                                <DataBindings>
+                                    <asp:MenuItemBinding NavigateUrlField="destUrl" TextField="MenuText" ToolTipField="tooltip" ValueField="id" />
+                                </DataBindings>
+                                <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+                                <DynamicHoverStyle BackColor="#72873E" ForeColor="#FFFFCC" />
+                                <DynamicMenuStyle BackColor="#72873E" HorizontalPadding="2px"  />
+                                <StaticSelectedStyle BackColor="#72873E" />
+                                <DynamicSelectedStyle BackColor="#72873E"  />
+                                <DynamicMenuItemStyle HorizontalPadding="15px" VerticalPadding="2px" />
+                                <StaticHoverStyle BackColor="#72873E" ForeColor="#FFFFCC" />
+                            </asp:Menu>     
+                         </div>                         
+                    </div>                    
+                </div>
+            </div> 
+        </header>
+
+            <!-- main content -->
+            <div id="contentwrapper">
+                <div class="main_content">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            <table style="width: 100%">
+                <tr>
+                    <td style="vertical-align: top; width: 50%">
+                        <p>
+                            &copy; 2008 -
+                        <%=Now.Year()%>
+                        Gate Gourmet Colombia Ltda. - Todos los derechos reservados.
+                        </p>
+                    </td>
+                    <td style="vertical-align: middle; width: 50%; text-align: right;">
+                        <div id="Div1" class="logo2">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!-- #footer -->
+        <asp:XmlDataSource ID="xdsMenu" runat="server" DataFile="~/Menu/ADMIN.xml" XPath="/*/*"></asp:XmlDataSource>
+
+        <asp:UpdateProgress ID="siteUpdateProgress" runat="server">
+            <ProgressTemplate>
+                <div class="TransparentGrayBackground">
+                </div>
+                <div class="UpdateProgress">
+                    <table style="height: 100%; width: 100%">
+                        <tr>
+                            <td valign="middle" style="width: 50%; text-align: center">
+                                <asp:Image ID="ajaxLoadNotificationImage" runat="server" ImageUrl="~/img/ajax_loader.gif"
+                                    AlternateText="Cargando..." />
+                            </td>
+                            <td valign="middle" style="width: 50%; text-align: center">Cargando...
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </ProgressTemplate>
+        </asp:UpdateProgress>
+    </form>
+</body>
+
+</html>

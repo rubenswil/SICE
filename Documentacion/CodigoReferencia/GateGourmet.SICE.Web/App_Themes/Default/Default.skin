@@ -1,0 +1,37 @@
+﻿<%--
+Default skin template. The following skins are provided as examples only.
+
+1. Named control skin. The SkinId should be uniquely defined because
+   duplicate SkinId's per control type are not allowed in the same theme.
+
+<asp:GridView runat="server" SkinId="gridviewSkin" BackColor="White" >
+   <AlternatingRowStyle BackColor="Blue" />
+</asp:GridView>
+
+2. Default skin. The SkinId is not defined. Only one default 
+   control skin per control type is allowed in the same theme.
+
+<asp:Image runat="server" ImageUrl="~/images/image1.jpg" />
+--%>
+
+<asp:Button SkinID="defaultBtn" runat="server" cssClass="btn btn-small btn-inverse"/>   
+<asp:Button SkinID="newBtn" runat="server" cssClass="btn btn-small btn-gebo"/>   
+<asp:Button SkinID="cancelBtn" runat="server" cssClass="btn btn-small"/>   
+<asp:Button SkinID="invOpcionesBtnEntrada" runat="server" cssClass="btn-InvOpcEntrada"/>   
+
+<asp:GridView runat="server" AllowPaging="True" AllowSorting="True" CellPadding="4" ForeColor="#333333"
+                    GridLines="None" PageSize="50" AutoGenerateColumns="False" SkinID="defaultGV">
+                    <AlternatingRowStyle BackColor="White" />
+                    <EditRowStyle BackColor="#7C6F57" />
+                    <FooterStyle BackColor="#CCCCCC" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#F9F9F9" ForeColor="Black" HorizontalAlign="Right" />
+                    <RowStyle BackColor="#E3EAEB" />
+                    <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
+                    <SortedAscendingCellStyle BackColor="#F8FAFA" />
+                    <SortedAscendingHeaderStyle BackColor="#246B61" />
+                    <SortedDescendingCellStyle BackColor="#D4DFE1" />
+                    <SortedDescendingHeaderStyle BackColor="#15524A" />
+                </asp:GridView>
+
+

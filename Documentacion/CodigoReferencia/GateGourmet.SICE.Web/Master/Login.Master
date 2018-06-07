@@ -1,0 +1,92 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="Login.master.vb" Inherits="GateGourmet.SICE.Web.Login" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Bootstrap framework -->
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap-responsive.min.css" />
+    <!-- theme color-->
+    <link rel="stylesheet" href="../css/green.css" />
+    <!-- tooltip -->
+    <link rel="stylesheet" href="../lib/qtip2/jquery.qtip.min.css" />
+    <!-- notifications -->
+    <link rel="stylesheet" href="../lib/sticky/sticky.css" />    
+    <!-- main styles -->
+    <link rel="stylesheet" href="../css/style.css" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../favicon.ico" />
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css' />
+    <!--[if lte IE 8]>
+            <script src="js/ie/html5.js"></script>
+			<script src="js/ie/respond.min.js"></script>
+        <![endif]-->
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>        
+
+
+<body>
+        <div id="header">
+        <h1>
+            <a id="A1" href="~/Default.aspx" runat="server"></a>
+        </h1>
+        <%--            <div id="logo">                
+            </div>--%>
+    </div>
+    <!-- #header -->
+    <div class="login_page">
+    <div class="login_box">
+        <form id="login_form" runat="server">
+        <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server" EnableHistory="true" EnablePartialRendering="true">
+              <Scripts>
+                  <asp:ScriptReference Path="~/js/jquery.min.js" />
+                  <asp:ScriptReference Path="~/lib/sticky/sticky.min.js" />
+                  <asp:ScriptReference Path="~/js/gebo_notifications.js" />
+              </Scripts>
+        </asp:ToolkitScriptManager>        
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+            <asp:UpdateProgress ID="siteUpdateProgress" runat="server">
+        <ProgressTemplate>
+            <div class="TransparentGrayBackground">
+            </div>
+            <div class="UpdateProgress">
+                <table style="height: 100%; width: 100%">
+                    <tr>
+                        <td valign="middle" style="width: 50%; text-align: center">
+                            <asp:Image ID="ajaxLoadNotificationImage" runat="server" ImageUrl="~/img/ajax_loader.gif"
+                                AlternateText="Cargando..." />
+                        </td>
+                        <td valign="middle" style="width: 50%; text-align: center">
+                            Cargando...
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </ProgressTemplate>
+    </asp:UpdateProgress>  
+        </form>
+    </div>
+    </div>
+    <div id="footer">
+        <table style="width: 100%">
+            <tr>
+                <td style="vertical-align: top; width: 50%">
+                    <p>
+                        &copy; 2008 -
+                        <%=Now.Year()%>
+                        Gate Gourmet Colombia Ltda. - Todos los derechos reservados.
+                    </p>
+                </td>
+                <td style="vertical-align: middle; width: 50%; text-align: right;">
+                    <div id="Div1" class="logo2">
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
